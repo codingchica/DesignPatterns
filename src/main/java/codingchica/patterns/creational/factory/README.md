@@ -6,7 +6,8 @@ title: Factory Pattern Class Diagram
 ---
 classDiagram
     Animal ..> ScientificClassification
-    ScientificClassification ..> ScientificClassification_Builder
+    Animal <.. AnimalFactory
+    ScientificClassification_Builder <.. ScientificClassification
     class AnimalFactory {
         -AnimalFactory()
         +AnimalFactory getInstance()$
