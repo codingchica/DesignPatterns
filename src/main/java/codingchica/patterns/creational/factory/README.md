@@ -1,10 +1,18 @@
+
+
+```mermaid
 ---
-title: Strategy Design Pattern Class Diagram
+title: Factory Pattern Class Diagram
 ---
 classDiagram
     Animal ..> ScientificClassification
     ScientificClassification ..> ScientificClassification_Builder
-    ScientificClassification ..> FlyingStrategy
+    class AnimalFactory {
+        -AnimalFactory()
+        +AnimalFactory getInstance()$
+        +Animal getHuman(String, String, boolean)
+        +Animal getFlyingSquirrel(String, String, boolean)
+    }
     class ScientificClassification {
         -String kingdomName
         -String phylumName
@@ -72,3 +80,5 @@ classDiagram
         +boolean equals()
         +String toString()
     }
+
+```

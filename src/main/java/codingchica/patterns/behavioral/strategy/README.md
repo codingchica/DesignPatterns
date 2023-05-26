@@ -2,66 +2,30 @@
 
 ```mermaid
 ---
-title: Strategy Design Pattern Class Diagram
+title: Strategy Pattern Class Diagram
 ---
 classDiagram
-    Animal ..> ScientificClassification
-    ScientificClassification ..> ScientificClassification_Builder
-    ScientificClassification ..> FlyingStrategy
-    class ScientificClassification {
-        -String kingdomName
-        -String phylumName
-        -String className
-        -String orderName
-        -String subOrderName
-        -String infraOrder
-        -String speciesName
-        -String familyName
-        -String subFamilyName
-        -String tribeName
-        -String genusName
-        + ScientificClassification_Builder builder()$
-        +String getKingdomName()
-        +String getPhylumName()
-        +String getClassName()
-        +String getOrderName()
-        +String getSubOrderName()
-        +String getInfraOrder()
-        +String getSpeciesName()
-        +String getFamilyName()
-        +String getSubFamilyName()
-        +String getTribeName()
-        +String getGenusName()
-        +int hashCode()
-        +boolean equals()
-        +String toString()
+    Animal ..> FlyingStrategy
+    AirplaneStrategy --|>  FlyingStrategy
+    FlapWingsStrategy --|> FlyingStrategy
+    GlidingStrategy --|> FlyingStrategy
+    UnableToFlyStrategy --|> FlyingStrategy
+    class FlyingStrategy {
+        +FlyingStrategy getFlyingStrategy()*
     }
-    class ScientificClassification_Builder {
-        -String kingdomName
-        -String phylumName
-        -String className
-        -String orderName
-        -String subOrderName
-        -String infraOrder
-        -String speciesName
-        -String familyName
-        -String subFamilyName
-        -String tribeName
-        -String genusName
-        ~ScientificClassification_Builder()
-        +kingdomName(String)
-        +phylumName(String)
-        +className(String)
-        +orderName(String)
-        +subOrderName(String)
-        +infraOrder(String)
-        +speciesName(String)
-        +familyName(String)
-        +subFamilyName(String)
-        +tribeName(String)
-        +genusName(String)
+    class AirplaneStrategy {
+        +FlyingStrategy getFlyingStrategy()
     }
-    class Animal{
+    class FlapWingsStrategy {
+        +FlyingStrategy getFlyingStrategy()
+    }
+    class GlidingStrategy {
+        +FlyingStrategy getFlyingStrategy()
+    }
+    class UnableToFlyStrategy {
+        +FlyingStrategy getFlyingStrategy()
+    }
+    class Animal {
         -ScientificClassification scientificClassification
         -String name
         -String description
