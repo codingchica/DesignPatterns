@@ -1,4 +1,8 @@
+# Factory Design Pattern
+The factory design pattern is useful when there is complex setup that must be done to construct a new object.
 
+In this example, the scientific classification is the complex logic that must be known under the factory's hood.
+As is the type of flying strategy in use by the age and type of animal.  
 
 ```mermaid
 ---
